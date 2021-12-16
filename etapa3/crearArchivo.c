@@ -3,7 +3,7 @@
 #include <string.h>
 #include"crearEscribirArchivo.h"
 
-int main(){
+int main(int argc, char *argv[]){
     char textoetapa2[]="Cristian el \n ingen333ero en sistemas";
     char cris[]="1";
 
