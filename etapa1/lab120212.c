@@ -1,9 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
 #include "methods.h"
- 
 
 int main(int argc, char *argv[]){
     char filename[20];
@@ -11,9 +6,9 @@ int main(int argc, char *argv[]){
     strcat(filename, argv[1]);
     strcat(filename, "/status");
     
-    FILE *iF = openFile(filename); 
+    FILE *iF = open_file(filename); 
 
-    printInformation(iF);
+    print_information(iF);
     
     fclose(iF);
     exit(0);

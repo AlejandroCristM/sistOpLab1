@@ -14,7 +14,7 @@ char *remove_word(char *str, const char *sub) { // mueve el apuntador de la lín
     return q;
 }
 
-char *concatenateFilename(char *processId){
+char *concatenate_filename(char *processId){
     char filename2[20], *p;
     strcpy(filename2, "/proc/");
     strcat(filename2, processId);
@@ -24,7 +24,7 @@ char *concatenateFilename(char *processId){
 }
 
 
-FILE *openFile(char *filename){
+FILE *open_file(char *filename){
     FILE *iF = fopen(filename,"r");
     if (iF == NULL) {
       printf("Error al abrir el archivo %s\n", filename);
@@ -33,7 +33,7 @@ FILE *openFile(char *filename){
     return iF;
 }
 
-void printInformation(FILE *iF){
+void print_information(FILE *iF){
     char line[201];
     char *result, *resultVmData, *resultVmStk;
     while(fgets(line, 201, iF)!=NULL) {
@@ -48,13 +48,13 @@ void printInformation(FILE *iF){
             printf("Tamaño total de la imagen en memoria:%s", result);
         } else if (strstr(line, "VmData")){
             resultVmData = remove_word(line, "VmData");
+            printf("\tTamaño de la memoria en la región DATA:%s", resultVmData);
         } else if (strstr(line, "VmStk")){
             resultVmStk = remove_word(line, "VmStk");
+            printf("\tTamaño de la memoria en la región STACK:%s", resultVmStk);
         } else if (strstr(line, "VmExe")){
             result = remove_word(line, "VmExe");
             printf("\tTamaño de la memoria en la región TEXT:%s", result);
-            printf("\tTamaño de la memoria en la región DATA:%s", resultVmData);
-            printf("\tTamaño de la memoria en la región STACK:%s", resultVmStk);
         } else if (strstr(line, "voluntary_ctxt_switches") && !strstr(line, "nonvoluntary_ctxt_switches")){
             result = remove_word(line, "voluntary_ctxt_switches");
             printf("Número de cambios de contexto realizados (voluntarios - no voluntarios): %s -", result);
