@@ -10,9 +10,6 @@ int main(int argc, char *argv[]){
     strcpy(filename, "/proc/");
     strcat(filename, argv[1]);
     strcat(filename, "/status");
-    /*char *filename;
-    filename = concatenateFilename(argv[1]);
-    printf("%s", filename);*/
     
     FILE *iF = openFile(filename); 
 
@@ -20,8 +17,6 @@ int main(int argc, char *argv[]){
     
     fclose(iF);
     exit(0);
-    
 
-    
 }
 
