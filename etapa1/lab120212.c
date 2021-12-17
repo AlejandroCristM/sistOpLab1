@@ -4,6 +4,17 @@
 #include <sys/stat.h>
 //#include "getProcInfo.h"
  
+char *strremove(char *str, const char *sub) {
+    int len = strlen(sub);
+    char *q;
+    if (len > 0) {
+        char *p = str;
+        q = p + len + 1;
+    }
+    return q;
+}
+
+
 
 int main(int argc, char *argv[]){
     char filename[20];
@@ -13,8 +24,8 @@ int main(int argc, char *argv[]){
     printf("%s",filename);
     printf("\n");
 
-    //char filename[80] = str;
     char line[201];
+    char *result;
     int numLinea = 1;
     FILE *iF;  
     iF = fopen(filename,"r");
@@ -25,6 +36,14 @@ int main(int argc, char *argv[]){
     while(fgets(line, 201, iF)!=NULL) {
       printf("%-5d",numLinea++);
       printf("%s",line);
+      if (strstr(line, "VmData")) {
+        
+
+        result = remove_word(line, "VmData");
+        printf("Nombre del proceso:");
+        printf("%s", result);
+      }
+
     } 
     
     fclose(iF);
@@ -33,3 +52,4 @@ int main(int argc, char *argv[]){
 
     
 }
+
