@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "validatequey.h": "c",
+        "string.h": "c",
+        "stdbool.h": "c"
+    }
+}
