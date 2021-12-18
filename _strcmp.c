@@ -1,10 +1,10 @@
 #include "process.h"
 
 /**
- * _strcmp - Compare two strings
+ * _strcmp - Comparar dos strings
  * @strings: Buffer 1.
  * @string: Buffer 2 to compare.
- * Return: Pointer whit object the compare.
+ * Return: Pointer con el objeto a comparar
  */
 
 int _strcmp(char *strings, char *string)

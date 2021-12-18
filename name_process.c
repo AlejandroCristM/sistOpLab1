@@ -2,7 +2,7 @@
 
 int name_process_with_id(int id){
 	int pid = id;
-	char *pid_text = _itoa(pid);// convetimos el numero del proceso de str a int
+	char *pid_text = _itoa(pid);// convertimos el numero del proceso de str a int
 	char cmd[100] = "ps -p ";
 	char *grepper = "-o comm= >/dev/null";
 	char *to_f_tmp = ">> process.txt";

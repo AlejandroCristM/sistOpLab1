@@ -13,9 +13,9 @@
 #include <unistd.h>
 
 /**
-* Struct to saving in to process.pid file
-* @id: is the identification process
-* @name_process: is the name of the identificate process
+* Estructura para guardar el  process.pid
+* @id: Identificaci[on del proceso]
+* @name_process: Nombre identificacion del proceso
 */
 
 typedef struct pds_p
@@ -28,7 +28,7 @@ typedef struct pds_p
 static int next;
 static char qbuf[8];
 
-// DECLARE FUNCTIONS PROTOTYPES
+// Declaracion prototipo de funciones
 char *_itoa(int n);
 int print_stack(pds_t *process);
 int assign_values(int id, char *name_process);
