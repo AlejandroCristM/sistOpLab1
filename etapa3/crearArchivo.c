@@ -3,11 +3,41 @@
 #include <string.h>
 #include"crearEscribirArchivo.h"
 
+
 int main(int argc, char *argv[]){
+
+
+ int isValidFlagg(char arg[]){
+    if(arg[0]=='-'){
+        if(arg[1]=='r') return 1;
+   }else{
+    return 0;
+   }
+ }
+
+  char text[10];
+  strcpy(text, argv[1]);
+
+  if(isValidFlagg(text)==1){
+    printf("\n EEEentro \n");
     char textoetapa2[]="Cristian el \n ingen333ero en sistemas";
     char cris[]="1";
+    printf("\n EEEentro \n");
+    crearEscribirArc(*textoetapa2, argv);
+  }else{
+    printf("\n no entro \n");
+  }
 
-    crearEscribirArc(textoetapa2, cris);
+        return 0;
+}
+  
+
+
+
+
+
+
+
 
 
     // //texto de prueba, aca deberia ir el string de la etapa2
@@ -32,5 +62,4 @@ int main(int argc, char *argv[]){
     //     printf("Error al abrir el archivo \n");
     //     exit(1);
     // }
-      return 0;
-}
+
