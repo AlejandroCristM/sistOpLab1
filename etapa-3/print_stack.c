@@ -1,13 +1,10 @@
 #include "process.h"
 
 int print_stack(pds_t *process, char **pids){
-	printf("LLEGOO");
 	 char titulo[100];
 	strcpy(titulo, "-- Informacion recolectada!!!\n");
 	int tama=0;
-	printf("LLEGOO");
     for(int j=2; pids[j] != NULL; j++){
-		printf("EEEEñ");
 		tama=tama+1;
 	}
     char charValue = tama+'0';
@@ -16,7 +13,6 @@ int print_stack(pds_t *process, char **pids){
         strcpy(filename2, "psinfo-report-");
         strcat(filename2, pids[2]);
     for (int i = 3; i <= tama+1; i++){
-		printf("VVV");
         strcat(filename2, "-");
         strcat(filename2, pids[i]);
     }
@@ -32,7 +28,6 @@ int print_stack(pds_t *process, char **pids){
 	char pid[50];
 	strcpy(pid, "Pid: ");
 	int id=process->id;
-	if(id<=3){printf("\nEs 1 o 3\n");}
 	char *idChar=_itoa(*pid);
 	strcat(pid, idChar);
 	fputs(pid, pf);
