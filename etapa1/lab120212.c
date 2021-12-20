@@ -7,9 +7,7 @@ int main(int argc, char *argv[]){
     strcat(filename, "/status");
     
     FILE *iF = open_file(filename); 
-
     print_information(iF);
-    
     fclose(iF);
     exit(0);
 

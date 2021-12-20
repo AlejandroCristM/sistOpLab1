@@ -23,7 +23,6 @@ char *concatenate_filename(char *processId){
     return p;
 }
 
-
 FILE *open_file(char *filename){
     FILE *iF = fopen(filename,"r");
     if (iF == NULL) {

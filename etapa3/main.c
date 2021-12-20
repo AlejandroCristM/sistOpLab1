@@ -5,11 +5,11 @@
 #include "validateQuery.h"
 #include "methods.h"
 #include "listProcesses.h"
-//#include"crearEscribirArchivo.h"
+#include"crearEscribirArchivo.h"
  
 
 int main(int argc, char *argv[]){
-
+    char processesInfo[50];
     char filename[20];
     char text[10];
     strcpy(text, argv[1]);
@@ -37,10 +37,9 @@ int main(int argc, char *argv[]){
                 listProcessesInfo(argc, argv);
                 break;
 
-            case 2:
-                //char processesInfo[] = getListProcessesInfo(argc, argv);
-                // char processesInfo[] = "Cristian el \n ingen333ero en sistemas";
-                // crearEscribirArc(*processesInfo, argv);
+            case 2: //etapa3
+               // char processesInfo[] = getListProcessesInfo(argc, argv);
+                crearEscribirArchi(argc, argv);
                 break;
         }
     }
