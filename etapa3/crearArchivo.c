@@ -6,19 +6,10 @@
 
 int main(int argc, char *argv[]){
 
-
- int isValidFlagg(char arg[]){
-    if(arg[0]=='-'){
-        if(arg[1]=='r') return 1;
-   }else{
-    return 0;
-   }
- }
-
   char text[10];
   strcpy(text, argv[1]);
 
-  if(isValidFlagg(text)==1){
+  if(isValidFlag(text)==1){
     printf("\n EEEentro \n");
     char textoetapa2[]="Cristian el \n ingen333ero en sistemas";
     char cris[]="1";

@@ -3,7 +3,6 @@
 #include <string.h>
 
 void crearEscribirArc(char infoProc,char **pids){
-     printf("entro");
     
     //instrucciones para poner el nombre correctamente | FORMATO: psinfo-report-[pids].inf
     int tama=0;
@@ -15,7 +14,7 @@ void crearEscribirArc(char infoProc,char **pids){
     if(tama>1){
         strcpy(filename2, "psinfo-report-");
         strcat(filename2, pids[2]);
-    for (int i = 3; i <= tama; i++){
+    for (int i = 2; i <= tama; i++){
         strcat(filename2, "-");
         strcat(filename2, pids[i]);
     }

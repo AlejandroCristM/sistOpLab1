@@ -6,6 +6,8 @@
         "process.h": "c",
         "methods.h": "c",
         "stat.h": "c",
-        "listprocesses.h": "c"
+        "listprocesses.h": "c",
+        "stdio.h": "c",
+        "validatequery.h": "c"
     }
 }
