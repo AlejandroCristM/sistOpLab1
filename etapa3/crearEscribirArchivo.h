@@ -5,14 +5,15 @@
 void crearEscribirArchi(int argc,char *argv[]){
     //instrucciones para poner el nombre correctamente | FORMATO: psinfo-report-[argv].inf
     char titulo[100];
+    printf("rrrrrrrrrrr55555rrrrrrrrr");
 	strcpy(titulo, "-- Informacion recolectada!!!\n");
 	int tama=0;
-    for(int j=2; argv[j] != NULL; j++){
+    for(int j=2; argv[j]!= NULL; j++){
 		tama=tama+1;
 	}
     char charValue = tama+'0';
     char filename2[50];
-    if(tama>1){
+    if(tama>0){
         strcpy(filename2, "psinfo-report-");
         strcat(filename2, argv[2]);
     for (int i = 3; i <= tama+1; i++){

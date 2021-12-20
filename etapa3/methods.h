@@ -83,13 +83,6 @@ void print_informationWrite(FILE *iF, FILE *pf, char *filename){
     char *result, *resultVmData, *resultVmStk;
     char informa[1000];
     FILE *ip = fopen(filename,"r");
-    if(ip == NULL) {
-      strcpy(informa, "Proceso Inexistente\n");
-     // strcat(informa, process);
-      fputs(informa, pf);
-    //  printf("Proceso %s Inexistente\n\n", process);
-      exit(300);
-    }else{
     while(fgets(line, 201, iF)!=NULL) {
         if (strstr(line, "Name")) {
             result = remove_word(line, "Name");
@@ -136,6 +129,5 @@ void print_informationWrite(FILE *iF, FILE *pf, char *filename){
     }
    // printf("%s", informa);
     fputs(informa, pf);
-    }
 }
 

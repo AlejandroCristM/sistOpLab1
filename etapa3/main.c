@@ -24,7 +24,8 @@ int main(int argc, char *argv[]){
         print_information(iF);
         fclose(iF);
 
-    }else{
+    }
+    else{
 
         state=isValidFlag(text);
 
