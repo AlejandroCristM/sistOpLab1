@@ -22,7 +22,7 @@ char getListProcessesInfo(int argc, char *argv[], FILE *pf){
     char informa[1000];
     fputs(informa, pf);
     for (int i = 2; i < argc; i++){
-      //  printf("\nProceso con PID: %s\n", argv[i]);
+        printf("s");
         strcpy(informa, "\nProceso con PID: ");
         strcat(informa, argv[i]);
         fputs(informa, pf);
@@ -33,5 +33,5 @@ char getListProcessesInfo(int argc, char *argv[], FILE *pf){
         FILE *iF = open_file3(filename, argv[i], pf); 
         print_informationWrite(iF, pf, filename);
         fclose(iF);
-    }
-} 
+    } 
+}

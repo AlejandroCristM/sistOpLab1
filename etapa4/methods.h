@@ -26,12 +26,12 @@ char *concatenate_filename(char *processId){
 
 FILE *open_file(char *filename, char process[10]){
     FILE *iF = fopen(filename,"r");
-    if (iF == NULL) {
+    if(iF == NULL) {
       //printf("Error al abrir el archivo %s\n", filename);
       printf("Proceso %s Inexistente\n\n", process);
       exit(300);
     }
-    return iF;
+    return iF; 
 }
 
 FILE *open_file3(char *filename, char process[10], FILE *pf){
@@ -83,13 +83,6 @@ void print_informationWrite(FILE *iF, FILE *pf, char *filename){
     char *result, *resultVmData, *resultVmStk;
     char informa[1000];
     FILE *ip = fopen(filename,"r");
-    if(ip == NULL) {
-      strcpy(informa, "Proceso Inexistente\n");
-     // strcat(informa, process);
-      fputs(informa, pf);
-    //  printf("Proceso %s Inexistente\n\n", process);
-      exit(300);
-    }else{
     while(fgets(line, 201, iF)!=NULL) {
         if (strstr(line, "Name")) {
             result = remove_word(line, "Name");
@@ -136,5 +129,5 @@ void print_informationWrite(FILE *iF, FILE *pf, char *filename){
     }
    // printf("%s", informa);
     fputs(informa, pf);
-    }
 }
+

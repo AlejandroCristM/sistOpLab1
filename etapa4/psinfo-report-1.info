@@ -1,0 +1,16 @@
+-- Informacion recolectada!!!
+
+Proceso con PID: 1
+Nombre del proceso: 	init
+
+Estado: 	S (sleeping)
+
+Tamaño total de la imagen en memoria: 	     896 kB
+
+	Tamaño de la memoria en la región DATA: 	     148 kB
+
+	Tamaño de la memoria en la región STACK:	     132 kB
+
+	Tamaño de la memoria en la región TEXT: 	     448 kB
+
+Número de cambios de contexto realizados (voluntarios - no voluntarios): -	286

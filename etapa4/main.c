@@ -5,7 +5,7 @@
 #include "validateQuery.h"
 #include "methods.h"
 #include "listProcesses.h"
- 
+#include "crearEscribirArchivo.h"
 
 int main(int argc, char *argv[]){
     int ansValidation = validateQuery(argc, argv);
@@ -27,7 +27,7 @@ int main(int argc, char *argv[]){
             break;
     
         case 2:
-            
+            crearEscribirArchi(argc, argv);
             break;
 
     }
