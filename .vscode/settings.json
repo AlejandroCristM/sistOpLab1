@@ -3,6 +3,9 @@
         "validatequey.h": "c",
         "string.h": "c",
         "stdbool.h": "c",
-        "process.h": "c"
+        "process.h": "c",
+        "methods.h": "c",
+        "stat.h": "c",
+        "listprocesses.h": "c"
     }
 }

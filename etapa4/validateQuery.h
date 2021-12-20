@@ -1,3 +1,22 @@
+/*
+    Validate query es la validación de la petición realizada por el usuario
+    <#PID> Para traer la info del proceso relacionado al valor numérico ingresado
+    -l <PID's> Para traer la info de los procesos relacionados al valor numérico ingresado
+    -r <PID's> Para traer la info de los procesos relacionados al valor numérico ingresado y ponerlo en un archivo
+    se retornará 0 para un solo proceso
+    se retornará 1 para una lista de procesos
+    se retornará 2 para una lista procesos en archivo
+
+    Errores al bash
+    101 por error en arg inválido
+    102 por valor de bandera inválido
+    103 opción inválida
+
+    200 por falta de información
+
+    300 resultado válido {Proceso inexistente o información encontrada}
+*/
+
 #include <stdio.h>
 #include <ctype.h>
 #include <stdbool.h>
@@ -8,7 +27,7 @@ void showResume(){
     printf("\nUsage\n");
     printf("    psinfo [options] <processPID>\n\n");
     printf("options:\n");
-    printf("    <processPID>     PID (process id) show process information  \n");
+    printf("    <processPID>     PID (process id) show process information, if one process does not exist, program will stop but will show the processes information before this\n");
     printf("    -l <pids>        pids (process id list >=1) show process(es) information\n");
     printf("    -r <pids>        pids (process id List >=1) save process(es) information in psinfo-report-[pids].info.\n\n");
 }
@@ -40,7 +59,7 @@ int validateQuery(int argc, char *argv[]){
     if(argc<2) {
         printf("Psinfo: usage error:  Process PID required \n");
         showResume();
-        exit(1);
+        exit(200);
     } else if(argc==2){
         strcpy(text, argv[1]);
         sw = isNumber(text);
@@ -51,15 +70,15 @@ int validateQuery(int argc, char *argv[]){
             if(state==1 || state==2){
                 printf("Psinfo: valid flag but PID process required after:  --> '%s'\n", text);
                 showResume();
-                exit(1);
+                exit(200);
             } else if(state==3){
                 printf("Psinfo: invalid flag:  --> '%s'\n", text);
                 showResume();
-                exit(1);
+                exit(102);
             }else{ //state=0
                 printf("Psinfo: invalid option:  --> '%s'\n", text);
                 showResume();
-                exit(1);
+                exit(103);
             }
         }
     } else{ //si es mayor a 2 significa que viene un un -l o -r y luego la lista
@@ -71,14 +90,14 @@ int validateQuery(int argc, char *argv[]){
             strcpy(text, argv[2]);
             printf("Psinfo: invalid argument:  --> '%s'\n", text);
             showResume();
-            exit(1);
+            exit(101);
         }else{
             state = isValidFlag(text);
             switch (state){
                 case 0:
                     printf("Psinfo: invalid option:  --> '%s'\n", text);
                     showResume();
-                    exit(1);
+                    exit(103);
                     break;
 
                 case 1:
@@ -87,7 +106,7 @@ int validateQuery(int argc, char *argv[]){
                         if(!isNumber(text)){
                             printf("Psinfo: invalid argument:  --> '%s'\n", text);
                             showResume();
-                            exit(1);
+                            exit(101);
                         }
                     }  
                     return 1; //1 => list
@@ -99,7 +118,7 @@ int validateQuery(int argc, char *argv[]){
                         if(!isNumber(text)){
                             printf("Psinfo: invalid argument:  --> '%s'\n", text);
                             showResume();
-                            exit(1);
+                            exit(101);
                         }
                     }  
                     return 2; //2 => file
@@ -108,7 +127,7 @@ int validateQuery(int argc, char *argv[]){
                 case 3:
                     printf("Psinfo: invalid flag:  --> '%s'\n", text);
                     showResume();
-                    exit(1);
+                    exit(102);
                     break;
             }
         }

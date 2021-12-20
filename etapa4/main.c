@@ -3,34 +3,32 @@
 #include <string.h>
 #include <sys/stat.h>
 #include "validateQuery.h"
+#include "methods.h"
+#include "listProcesses.h"
  
 
 int main(int argc, char *argv[]){
     int ansValidation = validateQuery(argc, argv);
     char filename[20];
-    strcpy(filename, "/proc/");
-    strcat(filename, argv[1]);
-    strcat(filename, "/status");
-    printf("%s",filename);
-    printf("\n");
+    switch (ansValidation){
+    
+        case 0:
+            strcpy(filename, "/proc/");
+            strcat(filename, argv[1]);
+            strcat(filename, "/status");
+            
+            FILE *iF = open_file(filename, argv[1]); 
+            print_information(iF);
+            fclose(iF);
+            break;
+    
+        case 1:
+            listProcessesInfo(argc, argv);            
+            break;
+    
+        case 2:
+            
+            break;
 
-    //char filename[80] = str;
-    char line[201];
-    int numLinea = 1;
-    FILE *iF;  
-    iF = fopen(filename,"r");
-    if (iF == NULL) {
-      printf("Error al abrir el archivo %s\n", filename);
-      exit(-1);
     }
-    while(fgets(line, 201, iF)!=NULL) {
-      printf("%-5d",numLinea++);
-      printf("%s",line);
-    } 
-    
-    fclose(iF);
-    exit(0);
-    
-
-    
 }
