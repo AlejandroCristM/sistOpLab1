@@ -19,7 +19,7 @@ void listProcessesInfo(int argc, char *argv[]){
 
 char getListProcessesInfo(int argc, char *argv[], FILE *pf){
     char filename[20];
-    char informa[1000];
+    char informa[1000] = {};
     fputs(informa, pf);
     for (int i = 2; i < argc; i++){
         printf("s");
